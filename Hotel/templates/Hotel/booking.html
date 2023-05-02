@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 
@@ -81,19 +82,19 @@
                         </button>
                         <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
                             <div class="navbar-nav mr-auto py-0">
-                                <a href="Hotel/index.html" class="nav-item nav-link">Home</a>
-                                <a href="Hotel/about.html" class="nav-item nav-link">About</a>
-                                <a href="Hotel/service.html" class="nav-item nav-link">Services</a>
-                                <a href="Hotel/room.html" class="nav-item nav-link">Rooms</a>
+                                <a href="{% url 'home' %}" class="nav-item nav-link">Home</a>
+                                <a href="{% url 'about' %}" class="nav-item nav-link">About</a>
+                                <a href="{% url 'service' %}" class="nav-item nav-link">Services</a>
+                                <a href="{% url 'room' %}" class="nav-item nav-link">Rooms</a>
                                 <div class="nav-item dropdown">
                                     <a href="#" class="nav-link dropdown-toggle active" data-bs-toggle="dropdown">Pages</a>
                                     <div class="dropdown-menu rounded-0 m-0">
-                                        <a href="Hotel/booking.html" class="dropdown-item active">Booking</a>
-                                        <a href="Hotel/team.html" class="dropdown-item">Our Team</a>
-                                        <a href="Hotel/testimonial.html" class="dropdown-item">Testimonial</a>
+                                        <a href="{% url 'booking' %}" class="dropdown-item active">Booking</a>
+                                        <a href="{% url 'team' %}" class="dropdown-item">Our Team</a>
+                                        <a href="{% url 'testimonial' %}" class="dropdown-item">Testimonial</a>
                                     </div>
                                 </div>
-                                <a href="Hotel/contact.html" class="nav-item nav-link">Contact</a>
+                                <a href="{% url 'contact' %}" class="nav-item nav-link">Contact</a>
                             </div>
                             <a href="https://htmlcodex.com/hotel-html-template-pro" class="btn btn-primary rounded-0 py-4 px-md-5 d-none d-lg-block">Premium Version<i class="fa fa-arrow-right ms-3"></i></a>
                         </div>
@@ -111,7 +112,7 @@
                     <h1 class="display-3 text-white mb-3 animated slideInDown">Booking</h1>
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb justify-content-center text-uppercase">
-                            <li class="breadcrumb-item"><a href="#">Home</a></li>
+                            <li class="breadcrumb-item"><a href="{% url 'home' %}">Home</a></li>
                             <li class="breadcrumb-item"><a href="#">Pages</a></li>
                             <li class="breadcrumb-item text-white active" aria-current="page">Booking</li>
                         </ol>
@@ -179,16 +180,16 @@
                     <div class="col-lg-6">
                         <div class="row g-3">
                             <div class="col-6 text-end">
-                                <img class="{% static 'Hotel/img-fluid rounded w-75 wow zoomIn' %}" data-wow-delay="0.1s" src="{% static 'Hotel/img/about-1.jpg" style="margin-top: 25%;">
+                                <img class="{% static 'Hotel/img-fluid rounded w-75 wow zoomIn' %}" data-wow-delay="0.1s" src="{% static 'Hotel/img/about-1.jpg' %}" style="margin-top: 25%;">
                             </div>
                             <div class="col-6 text-start">
-                                <img class="{% static 'Hotel/img-fluid rounded w-100 wow zoomIn' %}" data-wow-delay="0.3s" src="{% static 'Hotel/img/about-2.jpg">
+                                <img class="{% static 'Hotel/img-fluid rounded w-100 wow zoomIn' %}" data-wow-delay="0.3s" src="{% static 'Hotel/img/about-2.jpg' %}">
                             </div>
                             <div class="col-6 text-end">
-                                <img class="{% static 'Hotel/img-fluid rounded w-50 wow zoomIn' %}" data-wow-delay="0.5s" src="{% static 'Hotel/img/about-3.jpg">
+                                <img class="{% static 'Hotel/img-fluid rounded w-50 wow zoomIn' %}" data-wow-delay="0.5s" src="{% static 'Hotel/img/about-3.jpg' %}">
                             </div>
                             <div class="col-6 text-start">
-                                <img class="{% static 'Hotel/img-fluid rounded w-75 wow zoomIn' %}" data-wow-delay="0.7s" src="{% static 'Hotel/img/about-4.jpg">
+                                <img class="{% static 'Hotel/img-fluid rounded w-75 wow zoomIn' %}" data-wow-delay="0.7s" src="{% static 'Hotel/img/about-4.jpg' %}">
                             </div>
                         </div>
                     </div>
@@ -316,8 +317,8 @@
                         <div class="row gy-5 g-4">
                             <div class="col-md-6">
                                 <h6 class="section-title text-start text-primary text-uppercase mb-4">Company</h6>
-                                <a class="btn btn-link" href="">About Us</a>
-                                <a class="btn btn-link" href="">Contact Us</a>
+                                <a class="btn btn-link" href="{% url 'about' %}">About Us</a>
+                                <a class="btn btn-link" href="{% url 'contact' %}">Contact Us</a>
                                 <a class="btn btn-link" href="">Privacy Policy</a>
                                 <a class="btn btn-link" href="">Terms & Condition</a>
                                 <a class="btn btn-link" href="">Support</a>
@@ -345,7 +346,7 @@
                         </div>
                         <div class="col-md-6 text-center text-md-end">
                             <div class="footer-menu">
-                                <a href="">Home</a>
+                                <a href="{% url 'home' %}">Home</a>
                                 <a href="">Cookies</a>
                                 <a href="">Help</a>
                                 <a href="">FQAs</a>

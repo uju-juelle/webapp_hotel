@@ -82,19 +82,19 @@
                         </button>
                         <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
                             <div class="navbar-nav mr-auto py-0">
-                                <a href="Hotel/index.html" class="nav-item nav-link">Home</a>
-                                <a href="Hotel/about.html" class="nav-item nav-link">About</a>
-                                <a href="Hotel/service.html" class="nav-item nav-link">Services</a>
-                                <a href="Hotel/room.html" class="nav-item nav-link active">Rooms</a>
+                                <a href="{% url 'home' %}" class="nav-item nav-link">Home</a>
+                                <a href="{% url 'about' %}" class="nav-item nav-link">About</a>
+                                <a href="{% url 'service' %}" class="nav-item nav-link">Services</a>
+                                <a href="{% url 'room' %}" class="nav-item nav-link active">Rooms</a>
                                 <div class="nav-item dropdown">
                                     <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
                                     <div class="dropdown-menu rounded-0 m-0">
-                                        <a href="Hotel/booking.html" class="dropdown-item">Booking</a>
-                                        <a href="Hotel/team.html" class="dropdown-item">Our Team</a>
-                                        <a href="Hotel/testimonial.html" class="dropdown-item">Testimonial</a>
+                                        <a href="{% url 'booking' %}" class="dropdown-item">Booking</a>
+                                        <a href="{% url 'team' %}" class="dropdown-item">Our Team</a>
+                                        <a href="{% url 'testimonial' %}" class="dropdown-item">Testimonial</a>
                                     </div>
                                 </div>
-                                <a href="Hotel/contact.html" class="nav-item nav-link">Contact</a>
+                                <a href="{% url 'contact' %}" class="nav-item nav-link">Contact</a>
                             </div>
                             <a href="https://htmlcodex.com/hotel-html-template-pro" class="btn btn-primary rounded-0 py-4 px-md-5 d-none d-lg-block">Premium Version<i class="fa fa-arrow-right ms-3"></i></a>
                         </div>
@@ -112,7 +112,7 @@
                     <h1 class="display-3 text-white mb-3 animated slideInDown">Rooms</h1>
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb justify-content-center text-uppercase">
-                            <li class="breadcrumb-item"><a href="#">Home</a></li>
+                            <li class="breadcrumb-item"><a href="{% url 'home' %}">Home</a></li>
                             <li class="breadcrumb-item"><a href="#">Pages</a></li>
                             <li class="breadcrumb-item text-white active" aria-current="page">Rooms</li>
                         </ol>
@@ -177,6 +177,7 @@
                     <h1 class="mb-5">Explore Our <span class="text-primary text-uppercase">Rooms</span></h1>
                 </div>
                 <div class="row g-4">
+                    {% for product in products %}
                     <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
                         <div class="room-item shadow rounded overflow-hidden">
                             <div class="position-relative">
@@ -185,7 +186,7 @@
                             </div>
                             <div class="p-4 mt-2">
                                 <div class="d-flex justify-content-between mb-3">
-                                    <h5 class="mb-0">Junior Suite</h5>
+                                    <h5 class="mb-0">{{ product.name }}</h5>
                                     <div class="ps-2">
                                         <small class="fa fa-star text-primary"></small>
                                         <small class="fa fa-star text-primary"></small>
@@ -199,15 +200,16 @@
                                     <small class="border-end me-3 pe-3"><i class="fa fa-bath text-primary me-2"></i>2 Bath</small>
                                     <small><i class="fa fa-wifi text-primary me-2"></i>Wifi</small>
                                 </div>
-                                <p class="text-body mb-3">Erat ipsum justo amet duo et elitr dolor, est duo duo eos lorem sed diam stet diam sed stet lorem.</p>
+                                <p class="text-body mb-3">{{ product.description }}</p>
                                 <div class="d-flex justify-content-between">
                                     <a class="btn btn-sm btn-primary rounded py-2 px-4" href="">View Detail</a>
-                                    <a class="btn btn-sm btn-dark rounded py-2 px-4" href="">Book Now</a>
+                                    <a class="btn btn-sm btn-dark rounded py-2 px-4" href="{% url 'booking' %}">Book Now</a>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
+                    {% endfor %}
+                    <!-- <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
                         <div class="room-item shadow rounded overflow-hidden">
                             <div class="position-relative">
                                 <img class="img-fluid" src="{% static 'Hotel/img/room-2.jpg' %}" alt="">
@@ -353,7 +355,7 @@
                                 <div class="d-flex justify-content-between">
                                     <a class="btn btn-sm btn-primary rounded py-2 px-4" href="">View Detail</a>
                                     <a class="btn btn-sm btn-dark rounded py-2 px-4" href="">Book Now</a>
-                                </div>
+                                </div> -->
                             </div>
                         </div>
                     </div>
