@@ -5,8 +5,12 @@ from .models import *
 
 def home_page(request):
     products = Products.objects.all()
+    services = Category.objects.all()
+    reviews = Reviews.objects.all()
     context = {
-        "products" : products
+        "products" : products,
+        "services": services,
+        "reviews": reviews
     }
 
 

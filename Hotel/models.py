@@ -35,3 +35,32 @@ class Category(models.Model):
 
     def __str__(self):
         return self.name
+    
+
+
+class Reviews(models.Model):
+    name = models.CharField(max_length=100)
+    comment = models.TextField()
+    profession = models.CharField(max_length=100)
+    image = models.ImageField(upload_to="Reviews_images")
+
+    class Meta:
+        verbose_name_plural = "Reviews"
+
+
+    def __str__(self):
+        return self.name
+    
+
+
+class Staff(models.Model):
+    name = models.CharField(max_length=100)
+    designation = models.CharField(max_length=100)
+    image = models.ImageField(upload_to="staff_images")
+
+
+    class Meta:
+        verbose_name_plural = "Staff"
+
+    def __str__(self):
+        return self.name
