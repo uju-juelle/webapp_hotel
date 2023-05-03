@@ -20,7 +20,11 @@ def home_page(request):
 
 
 def about_page(request):
-    return render(request, "Hotel/about.html")
+    staffs = Staff.objects.all()
+    context = {
+        "staffs": staffs
+    }
+    return render(request, "Hotel/about.html", context)
 
 
 
