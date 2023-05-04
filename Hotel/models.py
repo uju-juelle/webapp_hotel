@@ -9,6 +9,7 @@ CATEGORY_CHOICES = (
     ("GYM & Yoga", "GYM & Yoga")
 )
 
+
 class Products(models.Model):
     name = models.CharField(max_length=100)
     description = models.TextField()
@@ -64,3 +65,17 @@ class Staff(models.Model):
 
     def __str__(self):
         return self.name
+        
+
+
+class Contact(models.Model):
+   name = models.CharField(max_length=100)
+   email = models.EmailField()
+   subject = models.CharField(max_length=100)
+   message = models.TextField()
+
+   class Meta:
+       verbose_name_plural = "Contacts"
+
+   def __str__(self):
+      return self.name

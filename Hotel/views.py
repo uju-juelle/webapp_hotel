@@ -1,9 +1,21 @@
-from django.shortcuts import render
+from django.shortcuts import render,redirect
 from .models import *
+from django.contrib import messages
+from .forms import *
 # Create your views here.
 
 
 def home_page(request):
+    # if request.method == "POST":
+    #     new_email = request.POST["email"]
+    #     if User.objects.filter(email=new_email).exists():
+    #         messages.error(request, "Email has been taken")
+    #         return redirect("/")
+    #     else:
+    #         User.objects.create_user(email=new_email)
+    #         messages.success(request, "Successfully Subscribed")
+    #         return redirect("/")
+    # else:
     products = Products.objects.all()
     services = Category.objects.all()
     reviews = Reviews.objects.all()
@@ -61,9 +73,17 @@ def service_page(request):
 
 
 def team_page(request):
-    return render(request, "Hotel/team.html")
+     staffs = Staff.objects.all()
+     context = {
+        "staffs": staffs
+     }
+     return render(request, "Hotel/team.html", context)
 
 
 
 def testimonial_page(request):
-    return render(request, "Hotel/testimonial.html")
+    reviews = Reviews.objects.all()
+    context = {
+        "reviews": reviews
+    }
+    return render(request, "Hotel/testimonial.html", context)
