@@ -46,7 +46,18 @@ def boooking_page(request):
 
 
 def contact_page(request):
-    return render(request, "Hotel/contact.html")
+    if request.method == "GET":
+        form = ContactForm()
+    elif request.method == "POST":
+       
+        form = ContactForm(request.POST)
+        if form.is_valid(): 
+          form.save()
+          return redirect("contact")
+    context = {
+     "form": form
+    }
+    return render(request, "Hotel/contact.html", context)
 
 
 

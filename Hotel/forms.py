@@ -1,10 +1,9 @@
-from django.contrib.auth.models import User
-from django.contrib.auth.forms import UserCreationForm
 from django import forms
+from .models import *
 
 
-class UserEmailForm(UserCreationForm):
+
+class ContactForm(forms.ModelForm):
     class Meta:
-        email = forms.EmailField()
-        model = User
-        fields = ["email"]
+        model = Contact
+        fields = "__all__"
