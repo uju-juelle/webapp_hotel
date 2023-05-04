@@ -40,15 +40,23 @@ def contact_page(request):
 
 def room_page(request):
     products = Products.objects.all()
+    reviews = Reviews.objects.all()
     context = {
-        "products": products
+        "products": products,
+        "reviews": reviews
     }
     return render(request, "Hotel/room.html", context)
 
 
 
 def service_page(request):
-    return render(request, "Hotel/service.html")
+    services = Category.objects.all()
+    reviews = Reviews.objects.all()
+    context = {
+        "services": services,
+        "reviews": reviews
+    }
+    return render(request, "Hotel/service.html", context)
 
 
 

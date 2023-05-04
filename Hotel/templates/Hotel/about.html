@@ -238,10 +238,11 @@
                     <h1 class="mb-5">Explore Our <span class="text-primary text-uppercase">Staffs</span></h1>
                 </div>
                 <div class="row g-4">
+                    {% for s in staffs %}
                     <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
                         <div class="rounded shadow overflow-hidden">
                             <div class="position-relative">
-                                <img class="{% static 'Hotel/img-fluid' %}" src="{% static 'Hotel/img/team-1.jpg' %}" alt="">
+                                <img class="img-fluid" src="{{s.image.url}}" alt="">
                                 <div class="position-absolute start-50 top-100 translate-middle d-flex align-items-center">
                                     <a class="btn btn-square btn-primary mx-1" href=""><i class="fab fa-facebook-f"></i></a>
                                     <a class="btn btn-square btn-primary mx-1" href=""><i class="fab fa-twitter"></i></a>
@@ -249,12 +250,13 @@
                                 </div>
                             </div>
                             <div class="text-center p-4 mt-3">
-                                <h5 class="fw-bold mb-0">Full Name</h5>
-                                <small>Designation</small>
+                                <h5 class="fw-bold mb-0">{{s.name}}</h5>
+                                <small>{{s.designation}}</small>
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
+                    {% endfor %}
+                    <!-- <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
                         <div class="rounded shadow overflow-hidden">
                             <div class="position-relative">
                                 <img class="{% static 'Hotel/img-fluid' %}" src="{% static 'Hotel/img/team-2.jpg' %}" alt="">
@@ -299,7 +301,7 @@
                             <div class="text-center p-4 mt-3">
                                 <h5 class="fw-bold mb-0">Full Name</h5>
                                 <small>Designation</small>
-                            </div>
+                            </div> -->
                         </div>
                     </div>
                 </div>
@@ -377,7 +379,7 @@
                 <div class="copyright">
                     <div class="row">
                         <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
-                            &copy; <a class="border-bottom" href="#">Your Site Name</a>, All Right Reserved. 
+                            &copy; <a class="border-bottom" href="#">Juelle Techsis</a>, All Right Reserved. 
 							
 							<!--/*** This template is free as long as you keep the footer author’s credit link/attribution link/backlink. If you'd like to use the template without the footer author’s credit link/attribution link/backlink, you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". Thank you for your support. ***/-->
 							Designed By <a class="border-bottom" href="https://htmlcodex.com">HTML Codex</a>
